@@ -82,6 +82,10 @@ func applicationDidBecomeActive(_ application: UIApplication)
 func applicationWillTerminate(_ application: UIApplication)	
 ```
 - 앱이 In-Active 상태가 되는 시나리오를 설명하시오.
+```
+App switcher 로 전환될때
+다른 앱의 알림으로 이벤트를 수신하지 못할떄
+```
 - scene delegate에 대해 설명하시오.
 - UIApplication 객체의 컨트롤러 역할은 어디에 구현해야 하는가?
 - App의 Not running, Inactive, Active, Background, Suspended에 대해 설명하시오.
