@@ -28,13 +28,13 @@ iOS개발자들에게 필요한 자료들을 정리하고 있는 중입니다.
    - 뷰의 Bounds 값을 변경시키면 해당 뷰를 중심으로 보이는 시각이 바뀐다. (scrollView)
 - 실제 디바이스가 없을 경우 개발 환경에서 할 수 있는 것과 없는 것을 설명하시오.
 - 앱의 콘텐츠나 데이터 자체를 저장/보관하는 특별한 객체를 무엇이라고 하는가?
-   - ### Core Data
+   - Core Data
    ```
    디바이스에서 데이터를 유지 or 캐시하고 실행 취소를 지원하는 프레임워크
    영구 데이터 저장 즉 데이터 베이스 기능은 Core Data 기능의 일부분으로 데이터 베이스 기능을 포괄하는 프레임워크이다
    ```
 - 앱 화면의 콘텐츠를 표시하는 로직과 관리를 담당하는 객체를 무엇이라고 하는가?
-   - # ViewController
+   - ViewController
    ```
    앱 구조의 뼈대, 모든 앱에 반드시 하나 이상의 view controller로 이루어져 있음,
    모든 view controller 들의 상위 클래스
@@ -46,11 +46,11 @@ iOS개발자들에게 필요한 자료들을 정리하고 있는 중입니다.
    ```
 ###
 - 앱이 시작할 때 main.c 에 있는 UIApplicationMain 함수에 의해서 생성되는 객체는 무엇인가?
-
-   ```UIApplication 싱글턴 객체가 생성됩니다. 응용 프로그램 객체 및 응용 프로그램 이벤트 주기를 설정합니다. ```
+   - UIApplication 싱글턴 객체
+   ```응용 프로그램 객체 및 응용 프로그램 이벤트 주기를 설정합니다. ```
 - @Main에 대해서 설명하시오.
 
-   ```UIKit 기반 앱의 main entry point 입니다. ```
+   ```UIKit 기반 앱의 main entry point ```
 - 앱이 foreground에 있을 때와 background에 있을 때 어떤 제약사항이 있나요?
    ```
    Foreground mode는 메모리 및 기타 시스템 리소스에 높은 우선순위를 가지며 시스템은 이러한 리소스를 사용할 수 있도록 필요에 따라 background 앱을 종료합니다.
@@ -87,6 +87,15 @@ App switcher 로 전환될때
 다른 앱의 알림으로 이벤트를 수신하지 못할떄
 ```
 - scene delegate에 대해 설명하시오.
+```
+iOS 13부터 AppDelegate의 책임이 AppDelegate와 SceneDelegate로 분리되었다.
+App Delegate → 애플리케이션 생명주기 및 설정 담당
+   App Life Cycle
+   Session Life Cycle
+Scene Delegate → 화면에 표시되는 내용(Windows 또는 Scenes)을 처리하고 앱이 표시되는 방식을 관리
+   window → scene
+```
+
 - UIApplication 객체의 컨트롤러 역할은 어디에 구현해야 하는가?
 - App의 Not running, Inactive, Active, Background, Suspended에 대해 설명하시오.
 ###
