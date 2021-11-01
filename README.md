@@ -97,6 +97,9 @@ Scene Delegate → 화면에 표시되는 내용(Windows 또는 Scenes)을 처�
 ```
 
 - UIApplication 객체의 컨트롤러 역할은 어디에 구현해야 하는가?
+```
+UIApplication 객체는 UIApplicationMain(_:_:_:_:) 함수에서 Singleton 객체로 생성된다. 그리고 이 함수는 @main이 선언되어 있는 App Delegate 에서 실행된다.
+```
 - App의 Not running, Inactive, Active, Background, Suspended에 대해 설명하시오.
 ###
 - NSOperationQueue 와 GCD Queue 의 차이점을 설명하시오.
