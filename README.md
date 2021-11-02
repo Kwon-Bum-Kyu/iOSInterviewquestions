@@ -47,10 +47,14 @@ iOS개발자들에게 필요한 자료들을 정리하고 있는 중입니다.
 ###
 - 앱이 시작할 때 main.c 에 있는 UIApplicationMain 함수에 의해서 생성되는 객체는 무엇인가?
    - UIApplication 싱글턴 객체
-   ```응용 프로그램 객체 및 응용 프로그램 이벤트 주기를 설정합니다. ```
+   ```
+   응용 프로그램 객체 및 응용 프로그램 이벤트 주기를 설정합니다. 
+   ```
 - @Main에 대해서 설명하시오.
 
-   ```UIKit 기반 앱의 main entry point ```
+   ```
+   UIKit 기반 앱의 main entry point 
+   ```
 - 앱이 foreground에 있을 때와 background에 있을 때 어떤 제약사항이 있나요?
    ```
    Foreground mode는 메모리 및 기타 시스템 리소스에 높은 우선순위를 가지며 시스템은 이러한 리소스를 사용할 수 있도록 필요에 따라 background 앱을 종료합니다.
