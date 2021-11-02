@@ -101,6 +101,21 @@ Scene Delegate → 화면에 표시되는 내용(Windows 또는 Scenes)을 처�
 UIApplication 객체는 UIApplicationMain(_:_:_:_:) 함수에서 Singleton 객체로 생성된다. 그리고 이 함수는 @main이 선언되어 있는 App Delegate 에서 실행된다.
 ```
 - App의 Not running, Inactive, Active, Background, Suspended에 대해 설명하시오.
+```
+Not Running은 앱이 아직 실행되지 않았거나, 완전히 종료되어 동작하지 않는 상태.
+
+Inactive는 app이 실행중이지만 사용자로부터 event를 받을 수 없는 상태. multitasking window로 진입하거나 app 실행중 전화, 알림 등에 의해 app을 사용할 수 없게 되는 경우 이 상태로 진입.
+
+Active는 app이 실제 실행중이고 사용자 event를 받아서 상호작용할 수 있는 상태.
+(바로 Active가 되지 않고 Inactive 상태를 거쳐 Active상태가 된다.)
+
+Background는 홈화면으로 나가거나 다른 app으로 전환되어 현재 app이 실질적인 동작을 하지 않는 상태.
+
+Suspended는 app을 다시 실행했을 때 최근 작업을 빠르게 로드하기 위해 메모리에 관련 데이터만 저장되어있는 상태
+app이 background 상태에 진입했을 때 다른 작업을 하지 않으면 Suspended 상태로 진입하게 됩니다
+Suspended 상태의 app들은 iOS의 메모리가 부족해지면 가장 먼저 메모리에서 해제됨.
+따라서 app을 종료시킨 적이 없더라도 app을 다시 실행하려고 하면 처음부터 다시 실행됩니다.
+```
 ###
 - NSOperationQueue 와 GCD Queue 의 차이점을 설명하시오.
 - GCD API 동작 방식과 필요성에 대해 설명하시오.
