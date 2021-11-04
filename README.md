@@ -122,6 +122,21 @@ Suspended 상태의 app들은 iOS의 메모리가 부족해지면 가장 먼저 
 ```
 ###
 - NSOperationQueue 와 GCD Queue 의 차이점을 설명하시오.
+```
+멀티스레딩을 위한 API
+쉽고 편한 멀티 스레딩 처리를 위해 애플은 두가지의 API를 제공하고 있다.
+
+GCD(Grand Central Dispatch)라는 C기반의 저수준 API와 NSOperation이라는 Obj-C 기반으로 만들어진 고수준 API가 있다. NSOperation은 GCD보다 약간의 오버헤드가 더 발생되고 느리지만 GCD에서는 직접 처리해야 하는 작업들을 지원 하고 있기 때문에 (KVO관찰, 작업취소 등등) 그정도는 감수하고 사용할만하다.
+
+GCD는 백그라운드에서 스레드를 관리하면서 동시적으로 작업을 실행시키는 저수준 API를 제공하는 라이브러리이다.
+
+- Dispatch Queues: 디스패치 큐는 FIFO 순서로 작업을 실행시키는 역할을 담당
+- Serial Dispatch Queue: 시리얼 디스패치 큐는 한번에 한 작업만 실행
+- Concurrent Dispatch Queue: 컨커런트 디스패치 큐는 시작한 작업이 끝나는것을 기다리지 않고 가능한 많은 작업을 실행
+- Main Dispatch Queue: 앱의 메인 스레드에서 작업을 실행할 수있는 전역에서 사용가능한 시리얼 큐
+
+
+```
 - GCD API 동작 방식과 필요성에 대해 설명하시오.
 - Global DispatchQueue 의 Qos 에는 어떤 종류가 있는지, 각각 어떤 의미인지 설명하시오.
 ###
