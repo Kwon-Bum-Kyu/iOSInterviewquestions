@@ -154,6 +154,39 @@ GCD는 백그라운드에서 스레드를 관리하면서 동시적으로 작�
 - 이미지 다운로드와 같이 오래 걸리는 작업을 동기로 처리하게 되면 해당 작업이 끝날때까지 화면이 멈추게 됨. 따라서 비동기로 백그라운드에서 동시에 작업을 처리해주는 것이 필요함
 ```
 - Global DispatchQueue 의 Qos 에는 어떤 종류가 있는지, 각각 어떤 의미인지 설명하시오.
+```
+## GCD
+
+큐마다 서로 다른 특징을 가지고 있어 원하는 특징에 맞게 큐에 보내면 된다
+
+1) Main 큐 - 메인쓰레드 Serial 
+
+2) Global 큐 - Defalut Concurrent(여러개 스레드로 분산처리) 
+
+```
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2df7c4c1-6850-4552-8dfc-b663a8a495e6/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2df7c4c1-6850-4552-8dfc-b663a8a495e6/Untitled.png)
+```
+3) Private 큐 - 커스텀 큐
+
+Global 큐 Qos
+
+DispatchQueue.global(qos: .userInteractive) - 즉시
+에니메이션, UI 업데이트
+메인큐도 userInteractive 이지만, userInteractive 큐라고 해서 항상 메인큐인것은 아니다. 
+
+DispatchQueue.global(qos: .userinitiated) - 몇초
+유저가 즉시 필요하지만, 비동기적으로 처리할 작업 (파일 다운로드, 열기)
+
+DispatchQueue.global() - Default
+
+DispatchQueue.global(qos: .utility) - 몇초 ~ 몇분 
+Progress indicator와 함께 길게 실행되는 작업 ex Networking , IO, 계산 
+
+DispatchQueue.global(qos: .background)
+DB 가져오기 / 유지
+
+DispatchQueue.global(qos: .unspecifed)
+```
 ###
 - iOS 앱을 만들고, User Interface를 구성하는 데 필수적인 프레임워크 이름은 무엇인가?
 - Foundation Kit은 무엇이고 포함되어 있는 클래스들은 어떤 것이 있는지 설명하시오.
