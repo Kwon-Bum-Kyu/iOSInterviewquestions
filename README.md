@@ -164,7 +164,7 @@ GCD는 백그라운드에서 스레드를 관리하면서 동시적으로 작�
 2) Global 큐 - Defalut Concurrent(여러개 스레드로 분산처리) 
 
 ```
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2df7c4c1-6850-4552-8dfc-b663a8a495e6/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2df7c4c1-6850-4552-8dfc-b663a8a495e6/Untitled.png)
+![concurrent queue](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F2df7c4c1-6850-4552-8dfc-b663a8a495e6%2FUntitled.png?table=block&id=8f3e4739-46fc-4fae-8748-d4a4e31dadee&spaceId=e97e973e-163f-4521-9046-b2b23e28de41&width=2000&userId=&cache=v2)
 ```
 3) Private 큐 - 커스텀 큐
 
