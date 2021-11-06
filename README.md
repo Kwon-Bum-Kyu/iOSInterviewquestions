@@ -206,6 +206,30 @@ Retain Cycle: 메모리가 해제되지 않고 유지되어 누수가 생기는 
 순환참조(두 객체가 서로 잡고있어 하나가 사라지려고 할 때 다른 한 쪽이 잡고 있으면 사라지지 않는 현상)에 의한 메모리 누수가 발생할 수 있다, weak 선언과 옵셔널로 선언해 약한 참조로 선언해 메모리 누수 발생을 방지한다.
 ```
 - NotificationCenter 동작 방식과 활용 방안에 대해 설명하시오.
+```
+NotificationCenter
+등록된 옵저버에게 노티피케이션을 전달하는 클래스
+
+동작 방식 
+객체 A : listener
+객체 B : sender
+NotificationCenter
+객체 A는 객체 B의 어떠한 행위를 관찰하기 위해 NotificationCenter에 옵저버를 등록한다.
+옵저버에는 어떤 객체를 관찰할 것인지, 어떤 행위를 관찰할 것인지 등이 들어감
+   AViewController.swift
+   NotificationCenter.default.addObserver(self, selector: #selector(handleNoti(_:)), name: "myNoti", object: nil)
+
+객체 B가 어떠한 행위를 한다.
+객체 B는 알림을 생성하고 NotificationCenter에 post함
+   BViewController.swift
+   NotificationCenter.default.post(name:"myNoti", object:" 전달할 값")
+
+NotificationCenter는 객체 A에게 등록한 옵저버에 대한 알림이 발생했다고 알려줌
+
+활용 방안
+아직까지 커스텀 노티피케이션을 활용해본 경험은 없다. UIApplication.willEnterForegroundNotification 을 활용하여
+앱이 백그라운드에서 포그라운드로 진입 했을 당시를 체크해서 무언가를 해준 경험은 있음. 
+```
 - UIKit 클래스들을 다룰 때 꼭 처리해야하는 애플리케이션 쓰레드 이름은 무엇인가?
 - App Bundle의 구조와 역할에 대해 설명하시오.
 - 모든 View Controller 객체의 상위 클래스는 무엇이고 그 역할은 무엇인가?
