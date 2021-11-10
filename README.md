@@ -266,6 +266,21 @@ override init - 코드로 뷰를 만들때 사용되는 생성자
 required init - 스토리보드를 통해서 View를 연결 할때 사용되는 생성자
 ```
 - View 객체에 대해 설명하시오.
+```
+화면의 직사각형 영역에 대한 콘텐츠를 관리하는 객체. 모든 뷰에 공통적인 동작을 정의하며 UIButton, UIImageView, UILabel 과 같은 모든 뷰 클래스의 상위 클래스
+
+그리기 및 애니메이션
+Core Graphics, UIViewAnimations, CoreAnimation
+
+레이아웃 및 하위보기 관리
+오토레이아웃
+
+이벤트 처리
+UIResponder → 터치 및 기타 유형의 이벤트 응답
+제스처 인식
+
+사용자 인터페이스에 대한 조작은 메인 스레드에서 해야 함. 메인 스레드가 필요하지 않을 수 있는 유일한 경우는 뷰 객체를 생성할 때 뿐이고, 그 외에 모든 조작은 메인 스레드에서 발생해야 함.
+```
 - UIView 에서 Layer 객체는 무엇이고 어떤 역할을 담당하는지 설명하시오.
 - UIWindow 객체의 역할은 무엇인가?
 - UINavigationController 의 역할이 무엇인지 설명하시오.
