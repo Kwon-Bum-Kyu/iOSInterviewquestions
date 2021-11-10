@@ -258,6 +258,13 @@ UIViewController: UIResponder
 앱에서 다른 뷰 컨트롤러를 포함한 다른 객체와 조정
 ```
 - 자신만의 Custom View를 만들려면 어떻게 해야하는지 설명하시오.
+```
+UIView를 상속하는 custom class 를 하나 생성해준다. 
+UIView는 두개의 필수 생성자가 있다
+
+override init - 코드로 뷰를 만들때 사용되는 생성자
+required init - 스토리보드를 통해서 View를 연결 할때 사용되는 생성자
+```
 - View 객체에 대해 설명하시오.
 - UIView 에서 Layer 객체는 무엇이고 어떤 역할을 담당하는지 설명하시오.
 - UIWindow 객체의 역할은 무엇인가?
