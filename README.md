@@ -328,6 +328,21 @@ UIResponder → 터치 및 기타 유형의 이벤트 응답
 ```
 
 - UIView 에서 Layer 객체는 무엇이고 어떤 역할을 담당하는지 설명하시오.
+  ![layer_intro](https://media.vlpt.us/images/grap_ios/post/bcc6fe75-30d5-4fc0-9350-15e994ca02cf/calayer-intro.png)
+
+```
+Core Animation API가 제공하는 요소중 하나로 UIView가 가지고 있는 속성이다.
+UIView의 역할은 크게 1. 화면 표시 2. 터치 이벤트 3. subview관리 인데, 이중 화면표시(뷰 위에 컨텐츠나 애니메이션을 그리는 행위)를 직접하지않고, Core Animation에 위임한다.
+```
+
+![uiview](https://media.vlpt.us/images/grap_ios/post/780190e4-5261-4409-b7a0-7581a6567200/R1280x0.png)
+
+```
+UIView는 하나의 CALayer만 가지고 있다.
+CALayer는 SubLayer를 여러개 둘 수 있다.
+UIView의 SubView는 UIView의 CALayer 위에 얹혀지는 것임
+```
+
 - UIWindow 객체의 역할은 무엇인가?
 - UINavigationController 의 역할이 무엇인지 설명하시오.
 - TableView를 동작 방식과 화면에 Cell을 출력하기 위해 최소한 구현해야 하는 DataSource 메서드를 설명하시오.
