@@ -66,11 +66,13 @@ iOS개발자들에게 필요한 자료들을 정리하고 있는 중입니다.
   ```
 
 - 앱이 foreground에 있을 때와 background에 있을 때 어떤 제약사항이 있나요?
+
   ```
   Foreground mode는 메모리 및 기타 시스템 리소스에 높은 우선순위를 가지며 시스템은 이러한 리소스를 사용할 수 있도록 필요에 따라 background 앱을 종료합니다.
 
   Background mode는 가능한 적은 메모리공간을 사용해야함(시스템 리소스 해제, 메모리에서 해제 후 데이터를 디스크에 작성)
   ```
+
 - 상태 변화에 따라 다른 동작을 처리하기 위한 앱델리게이트 메서드들을 설명하시오.
 
 ```
@@ -411,7 +413,21 @@ UIResponder → 터치 및 기타 유형의 이벤트 응답
 ```
 
 - 고차 함수가 무엇인지 설명하시오.
+
+```
+함수의 인자로 함수를 취하거나 결과를 함수로 반환하는 함수
+대표적으로 map, filter, reduce, compactMap, flatMap 이 있음.
+```
+
 - Swift Standard Library의 map, filter, reduce, compactMap, flatMap에 대하여 설명하시오.
+
+```
+map - 컬렉션 내부의 기존 데이터를 변경하여 새로운 컬렉션을 생성하는 함수
+filter - 컨테이너 내부의 값을 필터링하여 추출하는 함수
+reduce - 축약 시키는 함수. 클로저를 통해 각 항목들을 비교하여 일치하는 결과물을 가진 아웃풋 반환
+compactMap - 1차원 배열에서 nil을 제거하고 옵셔널 바인딩을 하고싶을때 사용
+flatMap - 2차원 배열을 1차원 배열로 flatten 하게 만들때 사용
+```
 
 ## Architecture
 
