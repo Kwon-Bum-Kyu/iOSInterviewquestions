@@ -331,7 +331,7 @@ UIResponder → 터치 및 기타 유형의 이벤트 응답
   ![layer_intro](https://media.vlpt.us/images/grap_ios/post/bcc6fe75-30d5-4fc0-9350-15e994ca02cf/calayer-intro.png)
 
 ```
-Core Animation API가 제공하는 요소중 하나로 UIView가 가지고 있는 속성이다.
+Core Animation API가 제공하는 요소중 하나로 뷰 위에 컨텐츠나 애니메이션을 그리는 역할을 한다.
 UIView의 역할은 크게 1. 화면 표시 2. 터치 이벤트 3. subview관리 인데, 이중 화면표시(뷰 위에 컨텐츠나 애니메이션을 그리는 행위)를 직접하지않고, Core Animation에 위임한다.
 ```
 
