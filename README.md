@@ -344,6 +344,13 @@ UIView의 SubView는 UIView의 CALayer 위에 얹혀지는 것임
 ```
 
 - UIWindow 객체의 역할은 무엇인가?
+
+```
+앱의 시각적 콘텐츠를 담는다.
+뷰들과 다른 어플리케이션 객체들에게 터치 이벤트를 전달하는 중요한 역할을 한다.
+오리엔테이션 변화를 쉽게 하기 위해 앱의 뷰 컨트롤러들과 협력한다.
+```
+
 - UINavigationController 의 역할이 무엇인지 설명하시오.
 - TableView를 동작 방식과 화면에 Cell을 출력하기 위해 최소한 구현해야 하는 DataSource 메서드를 설명하시오.
 - 하나의 View Controller 코드에서 여러 TableView Controller 역할을 해야 할 경우 어떻게 구분해서 구현해야 하는지 설명하시오.
