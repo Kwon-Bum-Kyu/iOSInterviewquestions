@@ -484,6 +484,11 @@ Objective-c나 rx는 회사, 팀마다 사용하는곳이 차이가있고 신입
 
 - RxSwift에서 Hot Observable과 Cold Observable의 차이를 설명하시오.
 - Subject와 drive의 차이를 설명하시오.
+  ```
+  Observable이 error 혹은 complete를 무시하고 싶을때 Driver로 변경하여 사용한다.
+  MainScheduler에서 실행되므로 스레드를 전환해 줄 필요 없다.
+  Subject와 Observable을 UI 처리 목적으로 죽지 않는 스트림을 제공하기 위해 사용한다.
+  ```
 
 ## MRC
 
