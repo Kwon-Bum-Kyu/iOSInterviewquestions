@@ -377,6 +377,109 @@ UIView의 SubView는 UIView의 CALayer 위에 얹혀지는 것임
 ## Swift
 
 - struct와 class와 enum의 차이를 설명하시오.
+  흔히 구조체, 클래스, 열거형의 공통점과 차이점을 떠올릴 때 가장 먼저 생각나는 것이 타입의 차이이다. 보통 구조체와 열거형은 값타입, 클래스는 참조타입이라고 하고, 이 차이점 때문에 셋 중에 어떤 것을 쓰느냐에 따라 프로그램이 작동하는 방식이 달라진다. 주로 동일한 클래스 인스턴스를 가리키는 여러 변수들이 있을 때 하나의 변수를 통해 클래스에 접근해서 값을 바꾸면 모든 변수들이 가리키는 하나의 인스턴스 내부 자체가 바뀌게 되고, 값 타입은 대입 과정에서 값의 복사가 일어나기 때문에 구조체 변수들이 모두 독립적인 객체를 갖게된다.
+
+```
+  class Person {
+  var name: String
+  init(name: String) {
+  self.name = name
+  }
+  }
+
+  var p1 = Person(name: "Jason")
+  var p2 = p1
+
+  p1.name = "Daniel" // p2.name 또한 Daniel일 것
+
+  struct Person {
+  var name: String
+  init(name: String) {
+  self.name = name
+  }
+  }
+
+  var p1 = Person(name: "Jason")
+  var p2 = p1
+
+  p1.name = "Daniel" // p2.name은 여전히 Jason!
+```
+
+가장 대표적인 참조타입과 값타입의 차이점이지만 여기서 주의해야할 것이 있다. 구조체는 항상 값타입인가? 라는 질문에는 “아니다”가 답이다. 구조체 내부에 참조타입 변수가 있을 수도 있고, 16 byte 이상의 크기를 가지면 구조체도 힙 영역에 생성됨으로써 참조타입이다.
+
+Mixed Types
+먼저 클래스 내에 구조체가 포함되는 경우에 대해 생각해보자.
+
+```
+struct Manufacturer {
+    var name: String
+}
+
+class Device {
+    var name: String
+    var manufacturer: Manufacturer
+
+    init(name: String, manufacturer: Manufacturer) {
+        self.name = name
+        self.manufacturer = manufacturer
+    }
+}
+
+let apple = Manufacturer(name: "Apple")
+// 여기서 iPhone, iPad 두 "클래스"는 동일하게 apple이라는 "구조체"를 속성으로 갖게된다
+let iPhone = Device(name: "iPhone", manufacturer: apple)
+let iPad = Device(name: "iPad", manufacturer: apple)
+
+iPad.manufacturer.name = "Google"
+
+print(iPhone.manufacturer.name) -> Apple
+print(iPad.manufacturer.name) -> Google
+```
+
+이는 꽤 직관적으로 이해가 된다. 애초에 구조체가 값 타입이니 iPhone, iPad라는 두 클래스가 init 될 때 값의 복사를 통해 속성을 저장했을 것이다.
+
+그렇다면 구조체 내에 클래스가 포함되는 반대의 경우는 어떨까?
+
+```
+class Engine: CustomStringConvertible {
+    var description: String {
+        return "\(type) Engine"
+    }
+
+    var type: String
+
+    init(type: String) {
+        self.type = type
+    }
+}
+
+struct Airplane {
+    var engine: Engine
+}
+
+let jetEngine = Engine(type: "Jet")
+// 여기서 jetEngine이라는 "참조타입변수"를 두 airplane 구조체가 독립적으로 복사해가느냐가 관건이다
+let bigAirplane = Airplane(engine: jetEngine)
+let littleAirplane = Airplane(engine: jetEngine)
+
+littleAirplane.engine.type = "Rocket"
+
+print(bigAirplane) -> Rocket Engine
+print(littleAirplane) -> Rocket Engine
+```
+
+참조타입을 따로 복사하여 초기화되는 것이 아니라 두 구조체가 하나의 Engine 인스턴스를 가리키는 변수를 가진 것이다.
+
+열거형
+
+```
+- 먼저 열거형은 switch statement와 만날 때 매우 강력해진다. 코드의 가독성이 높아지고, 간결해진다.
+- 무엇보다 enum case을 사용하는 것의 장점은 컴파일 타임에 에러를 확인할 수 있다는 것이다. 배열이나 딕셔너리 등은 순서가 바뀌거나 nil값이 들어있는 등 런타임 에러가 발생할 여지가 있지만 열거형의 경우 이런 오류를 컴파일러가 잡아준다.
+- 구조체로 열거형의 기능적인 요소는 대응할 수 있겠지만 구조체 내에 또 다른 구조체는 init하지 않으면 사용할 수 없다. 반면 열거형은 생성하지 않고 상수로 접근할 수 있도록 만들어져있기 때문에 실수의 여지가 줄어든다.
+- 열거형의 각 case가 비트단위의 고유값을 갖기에 비교가 빠르다. 비교문에서의 장점도 갖는 것이다.
+- 열거형 타입을 너무 많이 사용하면 확장성 측면에서 불리하다. 열거형이 수정되면 모든 소스들을 매번 다시 컴파일해야하기 때문이다.
+```
+
 - class의 성능을 향상 시킬수 있는 방법들을 나열해보시오.
 - Convinience init에 대해 설명하시오.
 - Anyobject에 대해 설명하시오.
@@ -406,12 +509,16 @@ UIView의 SubView는 UIView의 CALayer 위에 얹혀지는 것임
 ## ARC
 
 - ARC란 무엇인지 설명하시오.
-  ```
-  ARC는 Automatic Referencing Counting의 준말으로 메모리의 '참조 카운트'를 자동으로 관리해주는 메모리 관리 기법이다.
-  ARC는 메모리에 객체가 할당될 때마다 참조 카운트(Reference Count)를 1씩 증가시킵니다.
-  그 뒤에는 'nil이 할당되거나, 변수의 생명주기가 끝나거나, 속해 있는 class가 메모리에서 해제될 때' 참조 카운트를 1 감소시키면서
-  참조 카운트가 0이 되면 메모리에서 사라지게 된다.
-  ```
+
+```
+
+ARC는 Automatic Referencing Counting의 준말으로 메모리의 '참조 카운트'를 자동으로 관리해주는 메모리 관리 기법이다.
+ARC는 메모리에 객체가 할당될 때마다 참조 카운트(Reference Count)를 1씩 증가시킵니다.
+그 뒤에는 'nil이 할당되거나, 변수의 생명주기가 끝나거나, 속해 있는 class가 메모리에서 해제될 때' 참조 카운트를 1 감소시키면서
+참조 카운트가 0이 되면 메모리에서 사라지게 된다.
+
+```
+
 - Retain Count 방식에 대해 설명하시오.
 - Strong 과 Weak 참조 방식에 대해 설명하시오.
 - 순환 참조에 대하여 설명하시오.
@@ -422,39 +529,45 @@ UIView의 SubView는 UIView의 CALayer 위에 얹혀지는 것임
 - 함수형 프로그래밍이 무엇인지 설명하시오.
 
 ```
+
 함수형 프로그래밍이란 input을 전달 받고 output을 내는 함수들을 이어 붙여서 원하는 방식데로 데이터를 정제해서 사용하는 방식을 말한다.
 
 함수형 프로그래밍의 특징
-   1. 인풋과 아웃풋이 있다.
-      - 인풋을 넣으면 아웃풋이 나오고, 해당 아웃풋을 이용해 다음 함수에 넘겨준다. 이 작업을 모든 함수를 거칠때까지 반복한다.
-   2. 외부 환경으로 부터 철저히 독립적이다.
-      - 명령형 프로그래밍과 달리 단순 참조하기 위한 변수를 생성하지 않는다. 오로지 자신들에게 주어지는 인풋으로만 작업을해서 아웃풋을 반환한다.
-      - 그렇기 때문에 같은 인풋에 있어서는 언제나 동일한 아웃풋을 반환해낸다. 외부 요인에 영향을 받지 않기 때문에 철저히 들어오는 인풋에 대한 결과값만을 만들어내고
+
+1.  인풋과 아웃풋이 있다.
+    - 인풋을 넣으면 아웃풋이 나오고, 해당 아웃풋을 이용해 다음 함수에 넘겨준다. 이 작업을 모든 함수를 거칠때까지 반복한다.
+2.  외부 환경으로 부터 철저히 독립적이다.
+    - 명령형 프로그래밍과 달리 단순 참조하기 위한 변수를 생성하지 않는다. 오로지 자신들에게 주어지는 인풋으로만 작업을해서 아웃풋을 반환한다.
+    - 그렇기 때문에 같은 인풋에 있어서는 언제나 동일한 아웃풋을 반환해낸다. 외부 요인에 영향을 받지 않기 때문에 철저히 들어오는 인풋에 대한 결과값만을 만들어내고
       다음 함수도 역시 동일한 인풋을 넘겨받기 때문에 결과값이 흔들리지 않는다. 이런걸 보고 순수함수라고 한다. 명령형 프로그래밍에서도 실수만 없다면 동일 인풋에 동일
       아웃풋을 기대할 수 있지만, 참조하기 위해 선언 되어졌던 변수가 변수로 작용할 수 있기 때문에, 사람이 실수할 여지가 생기게 된다.
       함수형 프로그래밍에서는 외부 변수를 사용하더라고, 그 본체에 직접 접근해서 변경하는게 아니라 인자로 넣어서 사본으로 복사해간 다음에 작업하기 때문에 어떤 작업을 하든
       사이드 이펙트가 발생하지 않는다.
 
 함수형 프로그래밍의 목적
-   부수효과 없이 안정적이고 예측 가능한 프로그래밍
+부수효과 없이 안정적이고 예측 가능한 프로그래밍
 
 ```
 
 - 고차 함수가 무엇인지 설명하시오.
 
 ```
+
 함수의 인자로 함수를 취하거나 결과를 함수로 반환하는 함수
 대표적으로 map, filter, reduce, compactMap, flatMap 이 있음.
+
 ```
 
 - Swift Standard Library의 map, filter, reduce, compactMap, flatMap에 대하여 설명하시오.
 
 ```
+
 map - 컬렉션 내부의 기존 데이터를 변경하여 새로운 컬렉션을 생성하는 함수
 filter - 컨테이너 내부의 값을 필터링하여 추출하는 함수
 reduce - 축약 시키는 함수. 클로저를 통해 각 항목들을 비교하여 일치하는 결과물을 가진 아웃풋 반환
 compactMap - 1차원 배열에서 nil을 제거하고 옵셔널 바인딩을 하고싶을때 사용
 flatMap - 2차원 배열을 1차원 배열로 flatten 하게 만들때 사용
+
 ```
 
 ## Architecture
@@ -481,20 +594,25 @@ Objective-c나 rx는 회사, 팀마다 사용하는곳이 차이가있고 신입
 
 - Reactive Programming이 무엇인지 설명하시오.
 
-  ```
-  원하는 흐름을 observable로 구현한 다음에,
-  이를 타고 내려오는 데이터들을 오퍼레이터로 정제하고,
-  그 최종값을 구독자가 받아와 어떻게 반응해야할지 코딩해주는 것.
-  순수함수로 가공할 수 있는 스트림을 다룸으로써 함수형 프로그래밍의 강점이 적용될 수 있는 범위를 확장해줌.
-  ```
+```
+
+원하는 흐름을 observable로 구현한 다음에,
+이를 타고 내려오는 데이터들을 오퍼레이터로 정제하고,
+그 최종값을 구독자가 받아와 어떻게 반응해야할지 코딩해주는 것.
+순수함수로 가공할 수 있는 스트림을 다룸으로써 함수형 프로그래밍의 강점이 적용될 수 있는 범위를 확장해줌.
+
+```
 
 - RxSwift에서 Hot Observable과 Cold Observable의 차이를 설명하시오.
 - Subject와 drive의 차이를 설명하시오.
-  ```
-  Observable이 error 혹은 complete를 무시하고 싶을때 Driver로 변경하여 사용한다.
-  MainScheduler에서 실행되므로 스레드를 전환해 줄 필요 없다.
-  Subject와 Observable을 UI 처리 목적으로 죽지 않는 스트림을 제공하기 위해 사용한다.
-  ```
+
+```
+
+Observable이 error 혹은 complete를 무시하고 싶을때 Driver로 변경하여 사용한다.
+MainScheduler에서 실행되므로 스레드를 전환해 줄 필요 없다.
+Subject와 Observable을 UI 처리 목적으로 죽지 않는 스트림을 제공하기 위해 사용한다.
+
+```
 
 ## MRC
 
@@ -538,3 +656,7 @@ Objective-c나 rx는 회사, 팀마다 사용하는곳이 차이가있고 신입
 - Category 방식에 대해 설명하시오.
 - Objective-C 에서 Protocol 이란 무엇인지 설명하시오.
 - Objective-C++ 방식이 무엇인지 설명하고, 어떤 경우 사용해야 하는지 설명하시오.
+
+```
+
+```
