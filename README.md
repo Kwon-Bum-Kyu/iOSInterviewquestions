@@ -375,6 +375,11 @@ UIView의 SubView는 UIView의 CALayer 위에 얹혀지는 것임
   ```
 
 - 하나의 View Controller 코드에서 여러 TableView Controller 역할을 해야 할 경우 어떻게 구분해서 구현해야 하는지 설명하시오.
+  ```
+  1. viewDidLoad() 에서 register 함수를 사용해서 셀을 등록한다.
+  2. func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell 에서 파라미터로 받는 tableView를 객체 비교를 통해 구분한다.
+  3. 필요시 각각의 tableView의 content size를 구독하면서 테이블뷰의 height를 동적으로 관리해준다.
+  ```
 - setNeedsLayout와 setNeedsDisplay의 차이에 대해 설명하시오.
 
 ###
