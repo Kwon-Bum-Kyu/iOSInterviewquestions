@@ -356,6 +356,24 @@ UIView의 SubView는 UIView의 CALayer 위에 얹혀지는 것임
   네비게이션 컨트롤러는 컨테이너 뷰 컨트롤러로써 네비게이션 스택을 사용하여 다른 뷰 컨트롤러를 관리하는 역할을 한다.
   ```
 - TableView를 동작 방식과 화면에 Cell을 출력하기 위해 최소한 구현해야 하는 DataSource 메서드를 설명하시오.
+
+  ```
+  동작 방식
+    뷰 컨트롤러는 테이블 뷰의 데이터 소스와 델리게이트를 설정하고 reloadData 메시지를 보냅니다.
+
+    데이터 소스는 UITableView 개체로부터 numberOfRowsInSection: 메시지를 수신하고 테이블보기의 섹션 수를 반환합니다
+
+    각 섹션에 대해 데이터 소스는 tableView : numberOfRowsInSection : 메시지를 수신하고 섹션의 행 수를 반환하여 응답합니다.
+
+    데이터 소스는 테이블 뷰에 표시되는 각 행에 대해 tableView : cellForRowAt : 메시지를 수신합니다.
+    각 행에 대해 UITableViewCell 개체를 구성하고 반환하여 응답합니다. UITableView 개체는이 셀을 사용하여 행을 그립니다.
+
+
+  DataSource Method
+    tableView(_:numberOfRowsInSection) -> Int : 섹션별 cell 개수를 리턴합니다.
+    tableView(_:cellForRowAt:) -> UITableViewCell : 반환할 TableViewCell을 정의합니다.
+  ```
+
 - 하나의 View Controller 코드에서 여러 TableView Controller 역할을 해야 할 경우 어떻게 구분해서 구현해야 하는지 설명하시오.
 - setNeedsLayout와 setNeedsDisplay의 차이에 대해 설명하시오.
 
