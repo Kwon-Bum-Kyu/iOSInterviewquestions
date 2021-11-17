@@ -406,6 +406,12 @@ UIView의 SubView는 UIView의 CALayer 위에 얹혀지는 것임
 ## ARC
 
 - ARC란 무엇인지 설명하시오.
+  ```
+  ARC는 Automatic Referencing Counting의 준말으로 메모리의 '참조 카운트'를 자동으로 관리해주는 메모리 관리 기법이다.
+  ARC는 메모리에 객체가 할당될 때마다 참조 카운트(Reference Count)를 1씩 증가시킵니다.
+  그 뒤에는 'nil이 할당되거나, 변수의 생명주기가 끝나거나, 속해 있는 class가 메모리에서 해제될 때' 참조 카운트를 1 감소시키면서
+  참조 카운트가 0이 되면 메모리에서 사라지게 된다.
+  ```
 - Retain Count 방식에 대해 설명하시오.
 - Strong 과 Weak 참조 방식에 대해 설명하시오.
 - 순환 참조에 대하여 설명하시오.
