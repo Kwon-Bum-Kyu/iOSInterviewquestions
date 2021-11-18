@@ -508,6 +508,39 @@ print(littleAirplane) -> Rocket Engine
 
 - class의 성능을 향상 시킬수 있는 방법들을 나열해보시오.
 - Convinience init에 대해 설명하시오.
+
+  ```
+  Designated init은 Swift의 초기화 이니셜라이저입니다.
+  init의 파라미터에서 클래스 프로퍼티가 하나라도 빠지게되면,
+  ```
+
+  <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile10.uf.tistory.com%2Fimage%2F2143A745597096C90AA3DC" width=400 />
+
+  ```
+  이렇게 오류를 내게 됩니다.
+
+  convenience init은 "보조 이니셜라이저" 입니다.
+  Designated init의 파라미터 중 일부를 기본값으로 설정해서, 이 convenience init안에서 Designated init을 호출 하여 초기화를 진행할 수 있어요
+  convenience init을 사용하려면 Designated init이 꼭 먼저 선언 되어져야 합니다.
+
+  class Person {
+
+    var name: String
+    var age: Int
+    var gender: String
+
+    init(name: String, age: Int, gender: String) {
+        self.name = name
+        self.age = age
+        self.gender = gender
+    }
+
+    convenience init(age: Int, gender: String) {
+        self.init(name: "name", age: age, gender: gender)
+    }
+  }
+  ```
+
 - Anyobject에 대해 설명하시오.
 - Optional 이란 무엇인지 설명하시오.
 - Struct 가 무엇이고 어떻게 사용하는지 설명하시오.
