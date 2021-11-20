@@ -391,6 +391,23 @@ UIView의 SubView는 UIView의 CALayer 위에 얹혀지는 것임
 
 - NSCache와 딕셔너리로 캐시를 구성했을때의 차이를 설명하시오.
 - URLSession에 대해서 설명하시오.
+
+  ```
+  URLSession은 iOS에서 제공하는 HTTP를 이용한 네트워킹을 통해 데이터를 주고받을 수 있게 도와주는 API를 제공해주는 클래스입니다
+
+  URLSession은 URLSessionConfiguration을 통해 생성할 수 있습니다.
+
+  URLSessionConfiguration은 아래의 세가지 타입으로 만들 수 있습니다.
+    Default : 기본적인 네트워킹 정책을 사용합니다.
+    Ephemeral : 쿠키와 캐시를 저장하지 않을 때 사용합니다.
+    Background : 앱이 background에 있을 때 컨텐츠를 다운로드 혹은 업로드 할 때 사용합니다.
+
+  URLSessionTask 또한 작업에 따라 세가지로 분류할 수 있습니다.
+    URLSessionDataTask : 데이터를 받는 작업 수행 시 사용합니다. background 세션에 대한 지원을 하지 않습니다.
+    URLSessionUploadTask : 데이터 업로드 시 사용합니다.
+    URLSessionDownloadTask : 데이터 다운로드 시 사용합니다.
+  ```
+
 - prepareForReuse에 대해서 설명하시오.
 - 다크모드를 지원하는 방법에 대해 설명하시오.
 - ViewController의 생명주기를 설명하시오.
