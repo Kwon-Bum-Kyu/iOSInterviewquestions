@@ -409,6 +409,12 @@ UIView의 SubView는 UIView의 CALayer 위에 얹혀지는 것임
   ```
 
 - prepareForReuse에 대해서 설명하시오.
+  ```
+  테이블 뷰를 사용할때 보통 셀을 재사용한다.
+  때문에 재사용된 셀에서 보여주지 않아야 하는 텍스트 혹은 버튼 등이 보여지는 경우가 있다.
+  셀을 사용할 때는 반드시 모든 값이 초기화 되어져야 한다.
+  그리고 이렇게 초기화를 하기 위해 호출하는 함수가 prepareForReuse이다.
+  ```
 - 다크모드를 지원하는 방법에 대해 설명하시오.
 - ViewController의 생명주기를 설명하시오.
 - TableView와 CollectionView의 차이점을 설명하시오.
