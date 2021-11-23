@@ -465,17 +465,18 @@ UIView의 SubView는 UIView의 CALayer 위에 얹혀지는 것임
 - hugging, resistance에 대해서 설명하시오.
 
   <img src="https://github.com/jwonyLee/TIL/blob/master/iOS/Interview/image/hugging-resistance.png" width=500 />
+
   1. Content hugging
 
-      - 늘어나지 않으려고 하는 힘, 최대 크기에 제한을 두는 것. 뷰를 안쪽으로 당겨 콘텐츠 주변에 꼭 맞도록 한다.
+     - 늘어나지 않으려고 하는 힘, 최대 크기에 제한을 두는 것. 뷰를 안쪽으로 당겨 콘텐츠 주변에 꼭 맞도록 한다.
 
-  2.  Compression resistance
+  2. Compression resistance
 
-          - 외부에서 압력을 줄 때 버티는 힘, 최소 크기에 제한을 두는 것. 콘텐츠를 자르지 않도록 뷰를 바깥쪽으로 밀어낸다.
+     - 외부에서 압력을 줄 때 버티는 힘, 최소 크기에 제한을 두는 것. 콘텐츠를 자르지 않도록 뷰를 바깥쪽으로 밀어낸다.
 
-      | Right Label Content Hugging Priority = 750                                                                                    | Left Label Content Hugging Priority = 750                                                                                   |
-      | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-      | ![Right Label Content Hugging Priority = 750](https://github.com/jwonyLee/TIL/blob/master/iOS/Interview/image/rightLabel.png) | ![Left Label Content Hugging Priority = 750](https://github.com/jwonyLee/TIL/blob/master/iOS/Interview/image/leftLabel.png) |
+     | Right Label Content Hugging Priority = 750                                                                                    | Left Label Content Hugging Priority = 750                                                                                   |
+     | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+     | ![Right Label Content Hugging Priority = 750](https://github.com/jwonyLee/TIL/blob/master/iOS/Interview/image/rightLabel.png) | ![Left Label Content Hugging Priority = 750](https://github.com/jwonyLee/TIL/blob/master/iOS/Interview/image/leftLabel.png) |
 
 - Intrinsic Size에 대해서 설명하시오.
 - 스토리보드를 이용했을때의 장단점을 설명하시오.
