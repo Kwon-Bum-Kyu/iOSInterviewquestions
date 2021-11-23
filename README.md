@@ -422,6 +422,46 @@ UIView의 SubView는 UIView의 CALayer 위에 얹혀지는 것임
 ## Autolayout
 
 - 오토레이아웃을 코드로 작성하는 방법은 무엇인가? (3가지)
+
+  1. Layout Anchors
+
+  ```
+  // Get the superview's layout
+  let margins = view.layoutMarginsGuide
+
+  // Pin the leading edge of myView to the margin's leading edge
+  myView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+
+  // Pin the trailing edge of myView to the margin's trailing edge
+  myView.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+
+  // Give myView a 1:2 aspect ratio
+  myView.heightAnchor.constraint(equalTo: myView.widthAnchor, multiplier: 2.0).isActive = true
+  ```
+
+  2. NSLayoutConstraint Class
+     1 의 방식과 달리 레이아웃에 영향을 주지 않더라도 각 매개 변수에 대한 값을 지정해야 한다.
+
+  ```
+  NSLayoutConstraint(item: myView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leadingMargin, multiplier: 1.0, constant: 0.0).isActive = true
+
+  NSLayoutConstraint(item: myView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailingMargin, multiplier: 1.0, constant: 0.0).isActive = true
+
+  NSLayoutConstraint(item: myView, attribute: .height, relatedBy: .equal, toItem: myView, attribute:.width, multiplier: 2.0, constant:0.0).isActive = true
+  ```
+
+  3. Visual Format Language
+     문자열과 같은 ASCII를 이용해 제약 조건을 정의할 수 있음
+
+  ```
+  let views = ["myView" : myView]
+  let formatString = "|-[myView]-|"
+
+  let constraints = NSLayoutConstraint.constraints(withVisualFormat: formatString, options: .alignAllTop, metrics: nil, views: views)
+
+  NSLayoutConstraint.activate(constraints)
+  ```
+
 - hugging, resistance에 대해서 설명하시오.
 - Intrinsic Size에 대해서 설명하시오.
 - 스토리보드를 이용했을때의 장단점을 설명하시오.
