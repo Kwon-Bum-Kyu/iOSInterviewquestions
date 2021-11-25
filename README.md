@@ -418,6 +418,14 @@ UIView의 SubView는 UIView의 CALayer 위에 얹혀지는 것임
 - 다크모드를 지원하는 방법에 대해 설명하시오.
 - ViewController의 생명주기를 설명하시오.
 - TableView와 CollectionView의 차이점을 설명하시오.
+  ```
+  UIScrollView의 서브클래스로 무한한 양의(unbounded) 정보에 무한한 접근을 제공하기 위해 사용됩니다. 하지만 자료를 보여주는 방식에서 차이가 발생합니다.
+  
+  Table View: 정보를 하나의 긴 리스트로 보여줍니다(섹션 분리는 가능합니다).
+  Collection View: 다양한 방식이 가능하지만 기본적으로 text flow 형식으로 보여줍니다. 
+                   여기서 text flow란 글을 읽듯이 왼쪽에서 오른쪽으로, 그리고 다음 줄로 이어서 계속 작성하는 방식을 말합니다. 
+                   컬렉션 뷰는 커스터마이징이 가능합니다.
+  ```
 
 ## Autolayout
 
