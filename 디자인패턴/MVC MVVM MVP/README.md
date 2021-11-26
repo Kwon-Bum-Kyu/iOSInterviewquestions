@@ -113,7 +113,7 @@ MVC 패턴은 Model + View + Controller를 합친 용어입니다.
 
 3. 특징
 
-   MVVM 패턴은 [Command 패턴](https://ko.wikipedia.org/wiki/%EC%BB%A4%EB%A7%A8%EB%93%9C_%ED%8C%A8%ED%84%B4){:target="\_blank"} 과 [Data Binding](https://en.wikipedia.org/wiki/Data_binding){:target="\_blank"} 두 가지 패턴을 사용하여 구현되어 View와 View Model 사이의 의존성을 없앴습니다.
+   MVVM 패턴은 [Command 패턴](https://ko.wikipedia.org/wiki/%EC%BB%A4%EB%A7%A8%EB%93%9C_%ED%8C%A8%ED%84%B4){: target="\_blank"} 과 [Data Binding](https://en.wikipedia.org/wiki/Data_binding){: target="\_blank"} 두 가지 패턴을 사용하여 구현되어 View와 View Model 사이의 의존성을 없앴습니다.
 
    View Model과 View는 1:n 관계입니다.
 
