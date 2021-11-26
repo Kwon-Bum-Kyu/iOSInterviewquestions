@@ -1,5 +1,6 @@
 1. [MVC](#MVC)
 2. [MVP](#MVP)
+3. [MVVM](#MVVM)
 
 # MVC
 
@@ -82,3 +83,44 @@ MVC 패턴은 Model + View + Controller를 합친 용어입니다.
 5. 단점
 
    MVC 패턴의 단점인 View와 Model 사이의 의존성은 해결되었지만, View와 Presenter 사이의 의존성이 높은 가지게 되는 단점이 있습니다.
+
+# MVVM
+
+1. 구조
+
+   <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FCiXz0%2FbtqBQ1iMiVT%2FstaXr7UO95opKgXEU01EY0%2Fimg.png" width=600>
+
+   Model: 어플리케이션에서 사용되는 데이터와 그 데이터를 처리하는 부분
+
+   View: 사용자에게 보여지는 UI 부분
+
+   ViewModel: View를 표현하기 위해 만든 View를 위한 Model입니다.  
+   View를 나타내 주기 위한 Model이자 View를 나타내기 위한 데이터 처리를 하는 부분입니다.
+
+2. 동작
+
+   1. 사용자의 Action들은 View를 통해 들어오게 됩니다.
+
+   2. View 에 Action이 들어오면 **Command 패턴**으로 View Model에 Action을 전달합니다.
+
+   3. View Model은 Model에게 데이터를 요청합니다.
+
+   4. Model은 View Model에게 요청받은 데이터를 응답합니다.
+
+   5. View Model은 응답 받은 데이터를 가공하여 저장합니다.
+
+   6. View는 View Model과 **Data Binding**하여 화면을 나타냅니다.
+
+3. 특징
+
+   MVVM 패턴은 [Command 패턴](https://ko.wikipedia.org/wiki/%EC%BB%A4%EB%A7%A8%EB%93%9C_%ED%8C%A8%ED%84%B4){:target="\_blank"} 과 [Data Binding](https://en.wikipedia.org/wiki/Data_binding){:target="\_blank"} 두 가지 패턴을 사용하여 구현되어 View와 View Model 사이의 의존성을 없앴습니다.
+
+   View Model과 View는 1:n 관계입니다.
+
+4. 장점
+
+   MVVM 패턴은 View와 Model 사이의 의존성이 없습니다. 또한 Command 패턴과 Data Binding을 사용하여 View와 View Model 사이의 의존성 또한 없앤 디자인패턴입니다. 각각의 부분은 독립적이기 때문에 모듈화 하여 개발할 수 있습니다.
+
+5. 단점
+
+   설계가 쉽지 않다
