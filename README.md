@@ -418,12 +418,13 @@ UIView의 SubView는 UIView의 CALayer 위에 얹혀지는 것임
 - 다크모드를 지원하는 방법에 대해 설명하시오.
 - ViewController의 생명주기를 설명하시오.
 - TableView와 CollectionView의 차이점을 설명하시오.
+
   ```
   UIScrollView의 서브클래스로 무한한 양의(unbounded) 정보에 무한한 접근을 제공하기 위해 사용됩니다. 하지만 자료를 보여주는 방식에서 차이가 발생합니다.
-  
+
   Table View: 정보를 하나의 긴 리스트로 보여줍니다(섹션 분리는 가능합니다).
-  Collection View: 다양한 방식이 가능하지만 기본적으로 text flow 형식으로 보여줍니다. 
-                   여기서 text flow란 글을 읽듯이 왼쪽에서 오른쪽으로, 그리고 다음 줄로 이어서 계속 작성하는 방식을 말합니다. 
+  Collection View: 다양한 방식이 가능하지만 기본적으로 text flow 형식으로 보여줍니다.
+                   여기서 text flow란 글을 읽듯이 왼쪽에서 오른쪽으로, 그리고 다음 줄로 이어서 계속 작성하는 방식을 말합니다.
                    컬렉션 뷰는 커스터마이징이 가능합니다.
   ```
 
@@ -723,7 +724,16 @@ flatMap - 2차원 배열을 1차원 배열로 flatten 하게 만들때 사용
 ## Architecture
 
 - MVVM, Ribs, VIP 등 자신이 알고있는 아키텍쳐를 설명하시오.
+  [MVC MVVM MVP](https://github.com/donggyushin/iOSInterviewquestions/blob/main/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/MVC%20MVVM%20MVP/README.md)
 - 의존성 주입에 대하여 설명하시오.
+
+  ```
+  객체 A가 다른 객체인 B를 내부에 변수를 가지고 있게 된다면 B 객체의 구현내용에 따라서 A 객체의 동작은 영향을 받게 됩니다.
+  이런 상황에서 A객체는 B객체에 의존관계가 생기게 됩니다.
+  B객체를 A객체 내부가 아니라 외부에서 생성해서 넣어주는것을 '의존성을 주입한다' 라고 합니다.
+
+  장점은 재사용성과 테스트에 용이하고 의존성이 줄어듭니다.
+  ```
 
 # Optional
 
