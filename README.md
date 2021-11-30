@@ -644,7 +644,48 @@ print(littleAirplane) -> Rocket Engine
 
    구조체란, 인스턴스의 값(프로퍼티)을 저장하거나, 기능(메소드)를 제공하고 이를 캡슐화할 수 있도록 스위프트가 제공하는 타입입니다  
    class와 매우 비슷한데 차이점은 인스턴스가 값타입(변수에 저장할때마다 값이 복사되서 변수에 저장됨)이고 상속이 불가능하다는 차이점이 존재한다.  
-- Subscripts에 대해 설명하시오.
+- Subscripts에 대해 설명하시오.  
+
+   Class, Struct, Enum에서 collection, 순열, list, sequence 등 집합의 특정 멤버 요소에 쉽게 접근하기 위한 방법입니다  
+   인스턴스 이름 뒤에 대괄호로 감싼 값을 써줌으로써 인스턴스 내부의 특정 값에 접근할 수 있습니다  
+   
+   - 읽고 쓰기 가능
+   ```
+   subscript(index: Int) -> Int {
+    get {
+        // 적절한 반환 값
+    }
+    set(newValue) {
+        // 적절한 set 액션
+    }
+   }
+   ```
+   - 읽기 전용
+   ```
+   subscript(index: Int) -> Int {
+    // 적절한 반환 값
+   }
+   ```
+   - 사용 예시
+   ```
+   struct TimesTable {
+    let multiplier: Int
+    subscript(index: Int) -> Int {
+        return multiplier * index
+    }
+   }
+   // TimesTable구조체의 multiplier를 3으로 설정 
+   let threeTimesTable = TimesTable(multiplier: 3)
+   print("six times three is \(threeTimesTable[6])")
+   // "six times three is 18" 출력
+   ```
+   
+   ```
+   var numberOfLegs = ["spider": 8, "ant": 6, "cat": 4]
+   numberOfLegs["bird"] = 2
+   ```
+   numberOfLegs값은 타입 추론에 의해 [String: Int]형을 갖습니다. numberOfLegs["bird"] = 2는 사전형 변수 numberOfLegs에 key로 bird를 그 값은 2를 넣으라는 서브스크립트 문법입니다.
+   
 - instance 메서드와 class 메서드의 차이점을 설명하시오.
 - Delegate 패턴을 활용하는 경우를 예를 들어 설명하시오.
 - Singleton 패턴을 활용하는 경우를 예를 들어 설명하시오.
