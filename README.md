@@ -636,6 +636,9 @@ print(littleAirplane) -> Rocket Engine
   ```
 
 - Anyobject에 대해 설명하시오.
+
+   모든 클래스 타입을 지정할 수 있는 프로토콜.  
+   delegate 변수를 만들때 순환참조를 막기 위해 weak 키워드를 사용할때가 있는데, 이때 주로 사용된다. 
 - Optional 이란 무엇인지 설명하시오.
 - Struct 가 무엇이고 어떻게 사용하는지 설명하시오.
 - Subscripts에 대해 설명하시오.
