@@ -686,7 +686,42 @@ print(littleAirplane) -> Rocket Engine
    ```
    numberOfLegs값은 타입 추론에 의해 [String: Int]형을 갖습니다. numberOfLegs["bird"] = 2는 사전형 변수 numberOfLegs에 key로 bird를 그 값은 2를 넣으라는 서브스크립트 문법입니다.
    
-- instance 메서드와 class 메서드의 차이점을 설명하시오.
+- instance 메서드와 class 메서드의 차이점을 설명하시오.  
+
+
+   instance 메소드. 
+   
+   특정 클래스, 구조체, 열거형의 인스턴스에 속하는 함수  
+   인스턴스 프로퍼티 접근 및 수정을 제공하거나 인스턴스의 목적과 관련된 기능을 제공한다. 
+   
+   ```
+   class Person {
+      var name: String?
+      func changeName(name: String) {
+         self.name = name 
+      }
+   }
+
+   var personA = Person()
+   personA.changeName(name: "jeff")
+   ```
+   
+   class 메소드  
+   타입 메소드는 특정 타입 자체에 호출해서 사용 가능하고 static, class 메소드가 있다.    
+   class 메소드는 클래스에서만 사용 가능하고 struct, enum 은 사용 불가능하다.  
+   static 키워드는 서브 클래스에서 override 불가능하고, class 메소드는 가능하다.  
+   ```
+   struct Method {
+      static func staticMethod() {
+         print("static method") 
+      }
+      class func classMethod() {
+         print("class method") 
+      }
+   }
+   ```
+
+Method.staticMethod()
 - Delegate 패턴을 활용하는 경우를 예를 들어 설명하시오.
 - Singleton 패턴을 활용하는 경우를 예를 들어 설명하시오.
 - KVO 동작 방식에 대해 설명하시오.
