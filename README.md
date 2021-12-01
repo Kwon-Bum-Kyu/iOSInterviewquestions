@@ -719,9 +719,11 @@ print(littleAirplane) -> Rocket Engine
          print("class method") 
       }
    }
+   
+   Method.staticMethod()
    ```
 
-Method.staticMethod()
+
 - Delegate 패턴을 활용하는 경우를 예를 들어 설명하시오.
 - Singleton 패턴을 활용하는 경우를 예를 들어 설명하시오.
 - KVO 동작 방식에 대해 설명하시오.
