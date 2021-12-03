@@ -734,8 +734,6 @@ print(littleAirplane) -> Rocket Engine
 - KVO 동작 방식에 대해 설명하시오.  
    Key Value Observing.  
    KVO는 A객체에서 B객체의 키의 값이 변화됨을 감지할 수 있는 패턴입니다.  
-   위의 두 패턴이 주로 Controller와 다른 객체 사이의 관계를 다룬다면,   
-   KVO 패턴은 객체와 객체 사이의 관계를 다룰 때 적합합니다.   
    
    변수에 코드를 붙여 변수가 변경될 때마다 코드가 실행되도록 하는 방법을 의미한다.  
    Objective-C 런타임에 의존, NSObject를 상속받는 클래스에서 사용가능 다른 객체들이 그 객체의 속성이 변경된것을 알 수 있다 ```@objc dynamic``` 선언이 필수.  
