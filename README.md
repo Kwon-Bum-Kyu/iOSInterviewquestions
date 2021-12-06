@@ -752,6 +752,23 @@ print(littleAirplane) -> Rocket Engine
 
 - 멀티 쓰레드로 동작하는 앱을 작성하고 싶을 때 고려할 수 있는 방식들을 설명하시오.
 - MVC 구조에 대해 블록 그림을 그리고, 각 역할과 흐름을 설명하시오.
+
+   <img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fcc60d751-9ad8-4bd7-ab58-d526d97dcc98%2F_2020-09-29__1.05.35.png?table=block&id=b747b9b7-3d6c-4255-b2c6-d6c37726b852&spaceId=16128970-2666-4c7a-ab43-2c7300a0656a&width=1760&userId=eacce93d-8c7d-4f03-901f-664a8c40b633&cache=v2" width=700 />
+
+
+   ```
+   Model
+   - 데이터 관리
+   - 앱이 포함해야 할 데이터가 무엇인지 정의
+
+   # View
+   - 레이아웃과 화면 처리
+   - 앱의 데이터를 보여주는 방식을 정의
+
+   # Controller
+   - 명령을 모델과 뷰 부분으로 라우팅
+   - 앱의 사용자로부터의 입력에 대한 응답으로 모델 및 뷰를 업데이트하는 로직을 포함
+   ```
 - 프로토콜이란 무엇인지 설명하시오.
 - Hashable이 무엇이고, Equatable을 왜 상속해야 하는지 설명하시오.
 - mutating 키워드에 대해 설명하시오.
