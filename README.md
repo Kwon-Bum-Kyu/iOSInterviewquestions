@@ -824,6 +824,11 @@ print(littleAirplane) -> Rocket Engine
    프로토콜(Protocol) 은 특정 역할을 수행하기 위한 메서드, 프로퍼티, 기타 요구사항 등의 청사진을 정의합니다.
    ```
 - Hashable이 무엇이고, Equatable을 왜 상속해야 하는지 설명하시오.
+   ```
+   Hashable이란 Set, Dictionary의 Key와 같이 임의의 자료형을 정수의 값으로 변환하여 각각의 인스턴스를 정수 값을 통해 접근할 수 있도록 해준다. 
+   Hashable이 Equatable 프로토콜을 준수하여야 하는 이유는 Hashable을 통해서 변환된 정수의 값을 바탕으로 인스턴스를 비교하여 찾아야 하기 때문이다. 
+   ```
+   [잘 정리된 포스팅](https://zeddios.tistory.com/498)
 - mutating 키워드에 대해 설명하시오.
 - 탈출 클로저에 대하여 설명하시오.
 - Extension에 대해 설명하시오.
