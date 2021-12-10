@@ -830,6 +830,26 @@ print(littleAirplane) -> Rocket Engine
    ```
    [잘 정리된 포스팅](https://zeddios.tistory.com/498)
 - mutating 키워드에 대해 설명하시오.
+
+   ```
+   클래스는 reference 타입이고 struct 와 enum은 value 타입입니다. 
+   value 타입의 속성은 기본적으로 인스턴스 메서드 내에서 수정할 수 없습니다. 
+   만약 수정해야하는 경우 mutating 을 붙여주면 됩니다. 
+   ```
+```   
+struct Point {
+    var x = 0.0, y = 0.0
+    mutating func moveBy(x deltaX: Double, y deltaY: Double) {
+        x += deltaX
+        y += deltaY
+    }
+}
+var somePoint = Point(x: 1.0, y: 1.0)
+somePoint.moveBy(x: 2.0, y: 3.0)
+print("The point is now at (\(somePoint.x), \(somePoint.y))")
+=> The point is now at 2.0, 3.0
+```
+
 - 탈출 클로저에 대하여 설명하시오.
 - Extension에 대해 설명하시오.
 - 접근 제어자의 종류엔 어떤게 있는지 설명하시오
