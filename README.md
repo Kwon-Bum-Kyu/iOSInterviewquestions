@@ -851,6 +851,29 @@ print("The point is now at (\(somePoint.x), \(somePoint.y))")
 ```
 
 - 탈출 클로저에 대하여 설명하시오.
+   ```
+   탈출 클로저란?
+   함수의 인자로 전달된 클로저가 함수가 반환된 후 실행되는 클로저를 의미. 
+   이 경우 @escaping 키워드를 붙여주어야 한다. 
+   
+   사용하는 이유
+   보통은 비동기 작업을 처리하기 위해서 클로저를 탈출 시킵니다. 
+   
+      func getSumOf(array:[Int], handler: @escaping ((Int)->Void)) {
+          var sum: Int = 0
+          for value in array {
+              sum += value
+          }
+
+          DispatchQueue.global().asyncAfter(deadline: .now() + 1.0){
+              handler(sum)
+          }
+      }   
+      
+      Alamofire.request(urlRequest).responseJSON { response in
+
+      }      
+   ```
 - Extension에 대해 설명하시오.
 - 접근 제어자의 종류엔 어떤게 있는지 설명하시오
 - defer란 무엇인지 설명하시오.
