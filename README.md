@@ -898,6 +898,10 @@ print("The point is now at (\(somePoint.x), \(somePoint.y))")
     가장 높은 제한. 선언된 곳에서만 사용 가능. 
    ```
 - defer란 무엇인지 설명하시오.
+   ```
+   현재 스코프를 벗어날 경우에 실행됨. 
+   ```
+   [defer란 무엇인지 설명하시오.](https://mrgamza.tistory.com/585)
 - defer가 호출되는 순서는 어떻게 되고, defer가 호출되지 않는 경우를 설명하시오.
 - property wrapper에 대해서 설명하시오.
 - Generic에 대해 설명하시오.
