@@ -1,6 +1,7 @@
 1. [MVC](#MVC)
 2. [MVP](#MVP)
 3. [MVVM](#MVVM)
+3. [MVI](#MVI)
 
 # MVC
 
@@ -13,7 +14,6 @@ MVC 패턴은 Model + View + Controller를 합친 용어입니다.
     Model: 어플리케이션에서 사용되는 데이터와 그 데이터를 처리하는 부분
 
     View: 사용자에게 보여지는 UI 부분
-
     Controller: 사용자의 입력을 받고 처리하는 부분입니다.
 
 2.  동작
@@ -124,3 +124,53 @@ MVC 패턴은 Model + View + Controller를 합친 용어입니다.
 5. 단점
 
    설계가 쉽지 않다
+
+# MVI
+
+   MVI 패턴은 자바스크립트 생태계에서 탄생했으며 MVC에서 파생된, 능동적인 Controller 대신 Intent라고 불리는 Reactive 요소를 이용한 아키텍처 패턴입니다.
+   
+1. 구조
+
+   <img src="//t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/1OLd/image/JHTtx7AD-xlDJHdutxQBnUdnXQo.png" width=600 />
+   
+   Model: 어플리케이션에서 사용되는 데이터와 그 데이터를 처리하는 부분
+
+   View: 사용자에게 보여지는 UI 부분
+
+   Intent: View에서 액션을 입력받고 모델의 상태를 변화시켜 그 변환된 상태의 모델을 뷰에 전달하는 부분
+
+2. 동작
+
+   1. Intent로 User의 정보를 가져온다 (Android의 인텐트와 다름)
+
+   2. Intent는 Model에서 처리해야 하는 동작(Intended action)을 제공합니다.
+
+   3. Model은 Intent로부터 동작을 가져옵니다. 
+   (MVI의 Model은 단순 데이터뿐만 아니라, Application 상태(State)와 Business Logic을 관리합니다.)
+
+   4. Model은 View에 표시할 새로운 모델을 생성합니다.
+   (Immutability 한 모델을 생성합니다.)
+
+   5. View는 Model로부터 새로운 모델을 가져와 표시합니다.
+
+   6. View는 Presenter가 응답한 데이터를 이용하여 화면을 나타냅니다.
+
+3. 특징
+
+   MVI 는 Model - View - Intent 로 구성되어 있는 단방향(Uni-Directional) 아키텍쳐이다.
+
+   MVVM 의 경우 VM 이 Model 과 View 의 사이에서 양방향으로 통신하기 때문에 자칫 잘못하다간 VM 이 비대해지는 부작용이 발생할 수가 있지만 단방향 아키텍쳐는 그러한 이슈가 발생하지 않는다.
+
+4. 장점
+
+   단방향, 불변성 데이터를 이용해 예측 가능한 상태이다.
+
+   서로간 의존성이 없다.
+
+5. 단점
+
+   RxSwift와 같은 Observable 한 외부 라이브러리를 이용해야 함
+   
+
+   
+
