@@ -975,7 +975,7 @@ flatMap - 2차원 배열을 1차원 배열로 flatten 하게 만들때 사용
 ## Architecture
 
 - MVVM, Ribs, VIP 등 자신이 알고있는 아키텍쳐를 설명하시오.
-  [MVC MVVM MVP](https://github.com/donggyushin/iOSInterviewquestions/blob/main/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/MVC%20MVVM%20MVP/README.md)
+  [MVC MVVM MVP MVI](https://github.com/Kwon-Bum-Kyu/iOSInterviewquestions/blob/main/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/MVC%20MVVM%20MVP%20MVI/README.md)
 - 의존성 주입에 대하여 설명하시오.
 
   ```
@@ -993,7 +993,10 @@ flatMap - 2차원 배열을 1차원 배열로 flatten 하게 만들때 사용
 Objective-c나 rx는 회사, 팀마다 사용하는곳이 차이가있고 신입이나 주니어기준으로 필수라고 여겨지지않기에 옵셔널에 추가하였습니다.
 
 ## SwiftUI
-
+- Swift UI에 대하여 설명하시오.
+```
+Swift UI는 UIKit 위에서 빌드되는 프레임워크로 새로운 방식의 UI 인터페이스를 제공하며 선언형 방식의 구조를 가지고 있습니다.
+```
 ## Combine
 
 - PassthroughSubject에 대해서 설명하시오
